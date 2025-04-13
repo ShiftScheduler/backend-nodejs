@@ -8,10 +8,9 @@ const PORT = process.env.PORT || 3000;
 app.use(cors());
 app.use(express.json());
 
-app.get('/', (req, res) => {
-  res.send('Express backend is running! 🚀');
-});
+const notesRoutes = require('./routes/notes');
+app.use('/api/notes', notesRoutes);
 
 app.listen(PORT, () => {
-  console.log(`Server listening on port ${PORT}`);
+  console.log(`Backend running at http://localhost:${PORT}`);
 });
